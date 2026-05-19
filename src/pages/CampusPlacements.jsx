@@ -31,7 +31,7 @@ export default function CampusPlacements() {
 
   return (
     <>
-      {/* Campus hero */}
+      {/* Campus & Careers hero */}
       <section className="hero kiit-gradient-bg pattern-bg" aria-label="Campus and careers hero">
         <div className="container">
           <div className="hero-grid">
@@ -64,7 +64,7 @@ export default function CampusPlacements() {
         </div>
       </section>
 
-      {/* Campus life cards */}
+      {/* 1) Campus Life */}
       <section className="section mint-section" aria-label="Campus life section" id="campus">
         <div className="container">
           <div className="section-header">
@@ -92,7 +92,7 @@ export default function CampusPlacements() {
         </div>
       </section>
 
-      {/* Placements */}
+      {/* 2) Placements & Career Support */}
       <section
         className="section dark-green-section pattern-bg"
         aria-label="Placements and career support section"
@@ -164,11 +164,11 @@ export default function CampusPlacements() {
             </div>
           </div>
 
-            <div className="card">
-              <div className="grid-2" style={{ alignItems: "center" }}>
-                <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                  <Filter size={18} aria-hidden="true" />
-                  <strong>Filter:</strong>
+          <div className="card">
+            <div className="grid-2" style={{ alignItems: "center" }}>
+              <div style={{ display: "flex", gap: 10, alignItems: "center", flexWrap: "wrap" }}>
+                <Filter size={18} aria-hidden="true" />
+                <strong>Filter:</strong>
                 <div className="chips" role="group" aria-label="News and events filter">
                   {["All", "News", "Event"].map((k) => (
                     <button
@@ -200,7 +200,7 @@ export default function CampusPlacements() {
                       <div className="title">{e.title}</div>
                       <div className="meta">
                         {e.type}
-                        {e.month ? ` · ${e.month}${e.year ? ` ${e.year}` : ""}` : ""}
+                        {e.month ? ` - ${e.month}${e.year ? ` ${e.year}` : ""}` : ""}
                       </div>
                     </div>
                     <span className="chip" aria-pressed="false" style={{ cursor: "default" }}>
@@ -231,7 +231,7 @@ export default function CampusPlacements() {
         </div>
       </section>
 
-      {/* Contact */}
+      {/* 3) Contact & Quick Help */}
       <section className="section" aria-label="Contact and quick help section" id="contact">
         <div className="container">
           <div className="section-header">
