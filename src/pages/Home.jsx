@@ -136,13 +136,18 @@ export default function Home() {
     [activeRole]
   );
 
+  const heroCardStyle = useMemo(() => {
+    const src = images?.[homeHero.imageKey] ?? null;
+    return src ? { "--heroCardBg": `url(${src})` } : undefined;
+  }, []);
+
   return (
     <>
       {/* Home hero - KIIT-inspired green gradient */}
       <section className="hero kiit-gradient-bg pattern-bg" aria-label="Home hero">
         <div className="container">
           <div className="hero-grid">
-            <div className="glass hero-main soft-glow">
+            <div className="glass hero-main hero-main-image soft-glow" style={heroCardStyle}>
               <div className="badge-row" aria-label="Hero chips">
                 {homeHero.chips.map((c) => (
                   <span className="badge" key={c}>
