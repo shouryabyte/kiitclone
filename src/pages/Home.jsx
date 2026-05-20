@@ -252,8 +252,11 @@ export default function Home() {
                 style={{
                   textAlign: "left",
                   cursor: "pointer",
-                  borderColor: activeRole === r.key ? "rgba(0,184,107,0.35)" : undefined,
-                  background: activeRole === r.key ? "linear-gradient(180deg, var(--kiit-mint), white 70%)" : "white"
+                  borderColor: activeRole === r.key ? "rgba(0,168,107,0.35)" : undefined,
+                  background:
+                    activeRole === r.key
+                      ? "linear-gradient(180deg, rgba(0,168,107,0.10), var(--kiit-card))"
+                      : "var(--kiit-card)"
                 }}
               >
                 <strong style={{ display: "block", fontSize: "1.02rem" }}>{r.title}</strong>
