@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { NavLink, Link, useLocation } from "react-router-dom";
-import { Menu, X, ArrowRight, Sparkles } from "lucide-react";
+import { Menu, X, ArrowRight, Sparkles, Moon, Sun } from "lucide-react";
 import { images } from "../assets/imageMap.js";
 import { announcement, brand, nav } from "../data.js";
 
@@ -15,7 +15,7 @@ function useBodyScrollLock(locked) {
   }, [locked]);
 }
 
-export default function Navbar() {
+export default function Navbar({ theme = "light", onToggleTheme }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
   const panelId = "mobile-nav-panel";
@@ -98,6 +98,15 @@ export default function Navbar() {
           </nav>
 
           <div className="nav-cta">
+            <button
+              type="button"
+              className="icon-btn theme-toggle"
+              onClick={onToggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              title={theme === "dark" ? "Light mode" : "Dark mode"}
+            >
+              {theme === "dark" ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
+            </button>
             <Link className="btn btn-secondary" to="/admissions#apply">
               <span className="apply-long">Apply Now</span>
               <span className="apply-short" aria-hidden="true">
@@ -133,6 +142,22 @@ export default function Navbar() {
                     {l.label}
                   </NavLink>
                 ))}
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={onToggleTheme}
+                  aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+                >
+                  {theme === "dark" ? (
+                    <>
+                      <Sun size={16} aria-hidden="true" /> Light mode
+                    </>
+                  ) : (
+                    <>
+                      <Moon size={16} aria-hidden="true" /> Dark mode
+                    </>
+                  )}
+                </button>
                 <Link className="btn btn-primary" to="/admissions#apply">
                   Apply for KIITEE 2026 <ArrowRight size={16} aria-hidden="true" />
                 </Link>
